@@ -55,8 +55,9 @@ public class webEjercicioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-
+logger.info("Procedemos a recoger los departamentos");
 		List<Departamento> listaDepartamentos = DepartamentoDAO.getAllDepartamentos(session);
+		logger.info("Pintamos la tabla en html recogiendo cada departamento y insertandolo en la tabla");
 		response.getWriter().append("<html>");
 		response.getWriter().append("<head>");
 		response.getWriter().append("<title>ejercicio</title>");
