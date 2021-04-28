@@ -55,31 +55,31 @@ public class webServletMostrarEmpleados extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		List<Empleado> listaEmpleados = EmpleadoDAO.getAllEmpleados(session);
-//		response.getWriter().append("<html>");
-//		response.getWriter().append("<head>");
-//		response.getWriter().append("<title>Web Mostrar Empleados</title>");
-//		response.getWriter().append("</head>");
-//		response.getWriter().append("<body>");
-//		response.getWriter().append("<table border='solid'>");
-//		
-//		response.getWriter().append("<tr>");
-//		response.getWriter().append("<th>Codigo</th>");
-//		response.getWriter().append("<th>Nombre</th>");
-//		response.getWriter().append(" <th>Primer Apellido</th>");
-//		response.getWriter().append(" <th>Segundo Apellido</th>");
-//		response.getWriter().append(" <th>Lugar Nacimiento</th>");
-//		response.getWriter().append(" <th>Fecha Nacimiento</th>");
-//		response.getWriter().append(" <th>Dirección</th>");
-//		response.getWriter().append(" <th>Telefono</th>");
-//		response.getWriter().append(" <th>Puesto</th>");
-//		response.getWriter().append(" <th>Codigo Departamento</th>");
-//
-//		response.getWriter().append("</tr>");
+		response.getWriter().append("<html>");
+		response.getWriter().append("<head>");
+		response.getWriter().append("<title>Web Mostrar Empleados</title>");
+		response.getWriter().append("</head>");
+		response.getWriter().append("<body>");
+		response.getWriter().append("<table border='solid'>");
+		
+		response.getWriter().append("<tr>");
+		response.getWriter().append("<th>Codigo</th>");
+		response.getWriter().append("<th>Nombre</th>");
+		response.getWriter().append(" <th>Primer Apellido</th>");
+		response.getWriter().append(" <th>Segundo Apellido</th>");
+		response.getWriter().append(" <th>Lugar Nacimiento</th>");
+		response.getWriter().append(" <th>Fecha Nacimiento</th>");
+		response.getWriter().append(" <th>Dirección</th>");
+		response.getWriter().append(" <th>Telefono</th>");
+		response.getWriter().append(" <th>Puesto</th>");
+		response.getWriter().append(" <th>Codigo Departamento</th>");
+
+		response.getWriter().append("</tr>");
 		
 		for (int i = 0; i < listaEmpleados.size(); i++) {
 
-			response.getWriter().append("Lista de usuarios").append(listaEmpleados.get(i).toString());
-/*
+			//response.getWriter().append("Lista de usuarios").append(listaEmpleados.get(i).toString());
+
 			response.getWriter().append("<tr>");
 
 			response.getWriter().append(" <td>"+listaEmpleados.get(i).getCodigo()+"</td>");
@@ -97,12 +97,12 @@ public class webServletMostrarEmpleados extends HttpServlet {
 			response.getWriter().append(" <td>"+listaEmpleados.get(i).getCodDepartamento()+"</td>");
 			response.getWriter().append(" </tr>");
 
-	*/
+	
 		}
-//		response.getWriter().append("</table>");
-//
-//		response.getWriter().append("</body>");
-//		response.getWriter().append("</html>");
+		response.getWriter().append("</table>");
+
+		response.getWriter().append("</body>");
+		response.getWriter().append("</html>");
 }
 
 	/**
