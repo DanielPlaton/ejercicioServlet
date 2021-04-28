@@ -28,14 +28,14 @@ public class webEjercicioServlet extends HttpServlet {
 	Transaction tx = null;
 	Session session;
 	public static Logger logger = MyLogger.crearLogger(webEjercicioServlet.class);
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public webEjercicioServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public webEjercicioServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Servlet#init(ServletConfig)
@@ -44,44 +44,67 @@ public class webEjercicioServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		logger.info("Iniciando programa");
 		session = HibernateUtil.getSessionFactory().openSession();
-		
 
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-	
-		
-		List<Departamento> listaDepartamentos  = DepartamentoDAO.getAllDepartamentos(session);
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		for(int i=0;i<listaDepartamentos.size();i++) {
-			
-			//response.getWriter().append("Lista de usuarios ").append(listaDepartamentos.get(i).toString());
-			response.getWriter().append("<html>");
-			response.getWriter().append("<head>");
-			response.getWriter().append("<title>ejercicio</title>");
-			response.getWriter().append("</head>");
-			response.getWriter().append("<body>");
-			response.getWriter().append("</body>");
-			response.getWriter().append("</html>");
+		List<Departamento> listaDepartamentos = DepartamentoDAO.getAllDepartamentos(session);
+		response.getWriter().append("<html>");
+		response.getWriter().append("<head>");
+		response.getWriter().append("<title>ejercicio</title>");
+		response.getWriter().append("</head>");
+		response.getWriter().append("<body>");
+		response.getWriter().append("<table border='solid'>");
+		response.getWriter().append("<tr>");
+		response.getWriter().append("<th>Codigo</th>");
+
+		response.getWriter().append("<th>Nombre</th>");
+
+		response.getWriter().append(" <th>Codigo Responsable</th>");
+
+		response.getWriter().append("</tr>");
 		
+		for (int i = 0; i < listaDepartamentos.size(); i++) {
+
+			// response.getWriter().append("Lista de usuarios
+			// ").append(listaDepartamentos.get(i).toString());
+
+			response.getWriter().append("<tr>");
+
+			response.getWriter().append(" <td>"+listaDepartamentos.get(i).getCodigo()+"</td>");
+
+			response.getWriter().append("<td>"+listaDepartamentos.get(i).getNombre()+"</td>");
+
+			response.getWriter().append(" <td>"+listaDepartamentos.get(i).getCodResponsable()+"</td>");
+
+			response.getWriter().append(" </tr>");
+
 		
-			
 		}
+		response.getWriter().append("</table>");
+
+		response.getWriter().append("</body>");
+		response.getWriter().append("</html>");
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-	
+
 	}
 
 }

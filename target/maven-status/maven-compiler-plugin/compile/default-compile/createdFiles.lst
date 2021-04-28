@@ -1,1 +1,5 @@
+DAO\DepartamentoDAO.class
+controlador\MyLogger.class
+utils\HibernateUtil.class
+modelo\Departamento.class
 servlet\webEjercicioServlet.class
